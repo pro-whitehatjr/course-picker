@@ -328,12 +328,10 @@
                             courses[`level-${i}`].map(course => {
                                 if (course.course !== undefined && selected_courses.indexOf(course.course) !== -1) {
                                     return `<option value="${course.code}">${course.name}</option>`
-                                } else if (course.course == undefined) {
-                                    return `<option value="${course.code}">${course.name}</option>`
                                 } else if (selected_courses.indexOf(course.code) !== -1) {
                                     return ;
                                 } else {
-                                    return ;
+                                    return `<option value="${course.code}">${course.name}</option>`
                                 }
                                 // if (selected_courses.indexOf(course.code) !== -1) {
                                 //     let code = course['next-course']
