@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Course Picker</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <!-- Style -->
+        <style>
+            .course-dropdown {
+                width: 80%;
+                padding: 1em;
+                border-radius: 1em;
+            }
+            #section-1 {
+                background-color: bisque;
+            }
+
+            body {
+                overflow-x: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-center m-3 mb-5">
+                    <img src="https://s3-cdnwhjr.whjr.online/website/desktop/logo_whjr.png" height="100em" />
+                </div>
+            </div>
+            <div class="row pt-5 pb-5" id="section-1">
+                <div class="row">
+                    <div class="col-sm-12 col-md-7 col-lg-7">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <label>First Module (1-24)</label>
+                                    </div>
+                                </div>
+                                <select id="dropdown-1" class="course-dropdown">
+                                    <option value="">Select a course</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <label>Second Module (25-48)</label>
+                                    </div>
+                                </div>
+                                <select id="dropdown-2" class="course-dropdown">
+                                    <option value="">Select a course in previous module</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <label>Third Module (49-72)</label>
+                                    </div>
+                                </div>
+                                <select id="dropdown-3" class="course-dropdown">
+                                    <option value="">Select a course in previous module</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 text-center mt-5">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <label>Fourth Module (73-96)</label>
+                                    </div>
+                                </div>
+                                <select id="dropdown-4" class="course-dropdown">
+                                    <option value="">Select a course in previous module</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 text-center mt-5">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <label>Fifth Module (97-120)</label>
+                                    </div>
+                                </div>
+                                <select id="dropdown-5" class="course-dropdown">
+                                    <option value="">Select a course in previous module</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 text-center mt-5">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <label>Sixth Module (121-144)</label>
+                                    </div>
+                                </div>
+                                <select id="dropdown-6" class="course-dropdown">
+                                    <option>Select a course in previous module</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-5 col-lg-5">
+                        <img src="image.png" />
+                        <div id="message-box" class="p-5">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row mt-3">
+                <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                    <h2><b> Your Course</b></h2>
+                </div>
+            </div> -->
+        </div>
+
+        <script>
+            let courses = {
+                "level-1": [
+                    {
+                        "name": "Minecraft 1",
+                        "code": "mc-1"
+                    },
+                    {
+                        "name": "Game Design With JS 1",
+                        "code": "gdjs-1"
+                    },
+                    {
+                        "name": "Game Design With Python 1",
+                        "code": "gdpy-1"
+                    },
+                    {
+                        "name": "App Dev With JS 1",
+                        "code": "adjs-1"
+                    },
+                    {
+                        "name": "Robotics",
+                        "code": "rob-1"
+                    },
+                    {
+                        "name": "Game Arcade",
+                        "code": "ga-1"
+                    },
+                    {
+                        "name": "Roblox 1",
+                        "code": "robl-1"
+                    },
+                    {
+                        "name": "Web Dev 1",
+                        "code": "wd-1"
+                    },
+                    {
+                        "name": "Python Automation 1",
+                        "code": "pyauto-1"
+                    },
+                    {
+                        "name": "3D Modelling 1",
+                        "code": "3dmod-1"
+                    },
+                    {
+                        "name": "YouTube Video Production 1",
+                        "code": "ytprod-1"
+                    }
+                ],
+                "level-2": [
+                    {
+                        "name": "Minecraft 2",
+                        "code": "mc-2",
+                        "course": "mc-1"
+                    },
+                    {
+                        "name": "Game Design With JS 2",
+                        "code": "gdjs-2",
+                        "course": "gdjs-1"
+                    },
+                    {
+                        "name": "Game Design With Python 2",
+                        "code": "gdpy-2",
+                        "course": "gdpy-2"
+                    },
+                    {
+                        "name": "App Dev With JS 2",
+                        "code": "adjs-2",
+                        "course": "adjs-1"
+                    },
+                    {
+                        "name": "Robotics",
+                        "code": "rob-2",
+                        "course": "rob-1"
+                    },
+                    {
+                        "name": "Game Arcade",
+                        "code": "ga-2",
+                        "course": "ga-1"
+                    },
+                    {
+                        "name": "AR/VR 1",
+                        "code": "arvr-1"
+                    },
+                    {
+                        "name": "Roblox 2",
+                        "code": "robl-2",
+                        "course": "robl-1"
+                    },
+                    {
+                        "name": "Web Dev 2",
+                        "code": "wd-2",
+                        "course": "wd-1"
+                    },
+                    {
+                        "name": "Python Automation 2",
+                        "code": "pyauto-2",
+                        "course": "pyauto-1"
+                    }
+                ],
+                "level-3": [
+                    {
+                        "name": "AI/ML 1",
+                        "code": "aiml-1"
+                    },
+                    {
+                        "name": "AR/VR 2",
+                        "code": "arvr-2",
+                        "course": "arvr-2"
+                    }
+                ],
+                "level-4": [
+                    {
+                        "name": "AI/ML 2",
+                        "code": "aiml-2",
+                        "course": "aiml-1"
+                    },
+                    {
+                        "name": "Space Tech 1",
+                        "code": "st-1"
+                    }
+                ],
+                "level-5": [
+                    {
+                        "name": "Networking & IoT 1",
+                        "code": "neti-1"
+                    }
+                ],
+                "level-6": [
+                    {
+                        "name": "Networking & IoT 2",
+                        "code": "neti-2",
+                        "course": "neti-1"
+                    }
+                ]
+            }
+            $(document).ready(function(){
+                $("#dropdown-1").append(
+                    `
+                        ${courses['level-1'].map(course => {
+                            return `<option value="${course.code}">${course.name}</option>`
+                        })}
+                    `
+                )
+                $("#message-box").empty()
+                $("#message-box").append("<h4>Select the first course you want to pursue in the first module!</h4>")
+            })
+            $(function(){
+                $("#dropdown-1").change(function(){
+                    empty_dropdowns(2)
+                    display_course(2)
+                    $("#message-box").empty()
+                    $("#message-box").append("<h4>Awesome! Now select the second course!</h4>")
+                })
+                $("#dropdown-2").change(function(){
+                    empty_dropdowns(3)
+                    display_course(3)
+                    $("#message-box").empty()
+                    $("#message-box").append("<h4>Great! Now let's select the third one!</h4>")
+                })
+                $("#dropdown-3").change(function(){
+                    empty_dropdowns(4)
+                    display_course(4)
+                    $("#message-box").empty()
+                    $("#message-box").append("<h4>Cool! Let's select the fourth one.</h4>")
+                })
+                $("#dropdown-4").change(function(){
+                    empty_dropdowns(5)
+                    display_course(5)
+                    $("#message-box").empty()
+                    $("#message-box").append("<h4>Interesting choice! What will be your fifth course?</h4>")
+                })
+                $("#dropdown-5").change(function(){
+                    empty_dropdowns(6)
+                    display_course(6)
+                    $("#message-box").empty()
+                    $("#message-box").append("<h4>Nice! It's awesome. Time to choose your last course.</h4>")
+                })
+                $("#dropdown-6").change(function(){
+                    $("#message-box").empty()
+                    $("#message-box").append("<h4>Nice Job! Seems like a good choice to me!</h4>")
+                })
+            })
+            function empty_dropdowns(number) {
+                for (let i = number; i <= 6; i++) {
+                    $(`#dropdown-${i}`).empty()
+                    if (i == number) {
+                        $(`#dropdown-${i}`).append('<option value="">Select a course</option>')
+                    } else {
+                        $(`#dropdown-${i}`).append(`<option value="">Select a course in previous module</option>`)
+                    }
+                }
+            }
+            function display_course(number) {
+                let selected_courses = []
+                let available_courses = []
+                // let temp_obj = {}
+                // for (var k in courses) {
+                //     temp_obj[k] = courses[k]
+                // }
+                for (let i = 1; i < number; i++) {
+                    selected_courses.push($(`#dropdown-${i}`).val());
+                }
+                // let levels = ['level-1', 'level-2']
+                // for (let i = 0; i < levels.length; i++) {
+                //     for (let j = 0; j < courses[levels[i]].length; j++) {
+                //         if (selected_courses.indexOf(courses[levels[i]][j].code) !== -1) {
+                //             temp_obj[levels[i]].splice(j, 1)
+                //         }
+                //     }
+                // }
+                for (let i = number; i > 0; i--) {
+                    $(`#dropdown-${number}`).append(`
+                        ${
+                            courses[`level-${i}`].map(course => {
+                                if (course.course !== undefined && selected_courses.indexOf(course.course) !== -1) {
+                                    return `<option value="${course.code}">${course.name}</option>`
+                                } else if (course.course == undefined) {
+                                    return `<option value="${course.code}">${course.name}</option>`
+                                } else {
+                                    return ;
+                                }
+                                // if (selected_courses.indexOf(course.code) !== -1) {
+                                //     let code = course['next-course']
+                                //     if (selected_courses.indexOf(code) !== -1) {
+                                //         return ;
+                                //     } else {
+                                //         let level = parseInt(course['next-course'].split("-")[1])
+                                //         let next_course = courses[`level-${level}`].map(next => {
+                                //             if (next.code == code) {
+                                //                 return next;
+                                //             }
+                                //         })
+                                //         next_course = next_course.filter(elem => {
+                                //             if (elem !== undefined) {
+                                //                 return elem;
+                                //             }
+                                //         })
+                                //         return `<option value=${next_course[0].code}>${next_course[0].name}</option>`
+                                //     }
+                                // } else {
+                                //     return `<option value="${course.code}">${course.name}</option>`
+                                // }
+                            })
+                        }
+                    `)
+                }
+            }
+        </script>
+    </body>
+</html>
