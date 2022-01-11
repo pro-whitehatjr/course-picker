@@ -326,7 +326,7 @@
                     $(`#dropdown-${number}`).append(`
                         ${
                             courses[`level-${i}`].map(course => {
-                                if (course.course !== undefined && selected_courses.indexOf(course.course) !== -1) {
+                                if (course.course !== undefined && selected_courses.indexOf(course.course) !== -1 && selected_courses.indexOf(course.code) !== -1) {
                                     return `<option value="${course.code}">${course.name}</option>`
                                 } else if (course.course === undefined && selected_courses.indexOf(course.code) === -1) {
                                     return `<option value="${course.code}">${course.name}</option>`
